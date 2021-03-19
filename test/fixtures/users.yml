@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  middle_name: MyString
+  favorite_pizza: MyString
+  favorite_ice_cream: MyString
+  favorite_sandwich: MyString
+  email: MyString
+  pet_count: 1
+  pet_name: MyString
+
+two:
+  first_name: MyString
+  last_name: MyString
+  middle_name: MyString
+  favorite_pizza: MyString
+  favorite_ice_cream: MyString
+  favorite_sandwich: MyString
+  email: MyString
+  pet_count: 1
+  pet_name: MyString

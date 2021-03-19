@@ -1,0 +1,29 @@
+<%= turbo_frame_tag House::FORM_TURBO_FRAME_ID do %>
+  <%= form_with model: @house, url: wizard_path do |f| %>
+    <% if f.object.errors.any? %>
+      <div class="error_messages">
+        <% f.object.errors.full_messages.each do |error| %>
+          <p><%= error %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+    <fieldset>
+      <legend>House Info</legend>
+
+      <div>
+        <%= f.label :interior_color %>
+        <%= f.text_field :interior_color %>
+      </div>
+
+      <div>
+        <%= f.label :exterior_color %>
+        <%= f.text_field :exterior_color %>
+      </div>
+
+      <div>
+        <%= f.submit 'Continue' %>
+      </div>
+    </fieldset>
+  <% end %>
+<% end %>

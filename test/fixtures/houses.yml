@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyString
+  exterior_color: MyString
+  interior_color: MyString
+  current_family_last_name: MyString
+  rooms: 1
+  square_feet: 1
+
+two:
+  address: MyString
+  exterior_color: MyString
+  interior_color: MyString
+  current_family_last_name: MyString
+  rooms: 1
+  square_feet: 1

@@ -1,0 +1,27 @@
+<%= form_with model: @user, url: wizard_path, data: { turbo: false } do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="error_messages">
+      <% f.object.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>User's Pet Info</legend>
+
+    <div>
+      <%= f.label :pet_count %>
+      <%= f.text_field :pet_count %>
+    </div>
+
+    <div>
+      <%= f.label :pet_name %>
+      <%= f.text_field :pet_name %>
+    </div>
+
+    <div>
+      <%= f.submit 'Complete' %>
+    </div>
+  </fieldset>
+<% end %>

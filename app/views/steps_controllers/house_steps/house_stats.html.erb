@@ -1,0 +1,30 @@
+<%= turbo_frame_tag House::FORM_TURBO_FRAME_ID do %>
+  <%# Have to add the data-turbo-frame to the form itself since this is the last step and we want to redirect %>
+  <%= form_with model: @house, url: wizard_path, data: { 'turbo-frame' => :_top} do |f| %>
+    <% if f.object.errors.any? %>
+      <div class="error_messages">
+        <% f.object.errors.full_messages.each do |error| %>
+          <p><%= error %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+    <fieldset>
+      <legend>House Numbers</legend>
+
+      <div>
+        <%= f.label :rooms %>
+        <%= f.text_field :rooms %>
+      </div>
+
+      <div>
+        <%= f.label :square_feet %>
+        <%= f.text_field :square_feet %>
+      </div>
+
+      <div>
+        <%= f.submit 'Complete' %>
+      </div>
+    </fieldset>
+  <% end %>
+<% end %>
