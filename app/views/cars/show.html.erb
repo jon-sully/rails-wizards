@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Transmission type:</strong>
+  <%= @car.transmission_type %>
+</p>
+
+<p>
+  <strong>Seat count:</strong>
+  <%= @car.seat_count %>
+</p>
+
+<p>
+  <strong>Ride height:</strong>
+  <%= @car.ride_height %>
+</p>
+
+<p>
+  <strong>Preferred engine type:</strong>
+  <%= @car.preferred_engine_type %>
+</p>
+
+<p>
+  <strong>Exterior color:</strong>
+  <%= @car.exterior_color %>
+</p>
+
+<p>
+  <strong>Interior material:</strong>
+  <%= @car.interior_material %>
+</p>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>

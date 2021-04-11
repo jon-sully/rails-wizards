@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Boats</h1>
+
+<p>
+  The Boats wizard is just a variation of the Users wizard. In this case we're storing the persitent ID
+  of the record created when the user hits 'New' in the user's session rather than directly in the URL.
+  Still mostly straightforward.
+  <br/>
+  <br/>
+  The Boats wizard contains no Turbo Frames but Turbo Drive <i>is</i> running, so the full page is being
+  replaced on each navigation/submit.
+</p>
+<hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location docked</th>
+      <th>Length</th>
+      <th>Width</th>
+      <th>Displacement</th>
+      <th>Maximum speed</th>
+      <th>Engine count</th>
+      <th>Color</th>
+      <th>Primary use</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @boats.each do |boat| %>
+      <tr>
+        <td><%= boat.name %></td>
+        <td><%= boat.location_docked %></td>
+        <td><%= boat.length %></td>
+        <td><%= boat.width %></td>
+        <td><%= boat.displacement %></td>
+        <td><%= boat.maximum_speed %></td>
+        <td><%= boat.engine_count %></td>
+        <td><%= boat.color %></td>
+        <td><%= boat.primary_use %></td>
+        <td><%= link_to 'Show', boat %></td>
+        <td><%= link_to 'Edit', edit_boat_path(boat) %></td>
+        <td><%= link_to 'Destroy', boat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Boat', new_boat_path %>

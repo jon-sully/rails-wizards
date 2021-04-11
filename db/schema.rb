@@ -10,7 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_194737) do
+ActiveRecord::Schema.define(version: 2021_04_10_172123) do
+
+  create_table "boats", force: :cascade do |t|
+    t.string "name"
+    t.string "location_docked"
+    t.integer "length"
+    t.integer "width"
+    t.integer "displacement"
+    t.integer "maximum_speed"
+    t.integer "engine_count"
+    t.string "color"
+    t.string "primary_use"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cars", force: :cascade do |t|
+    t.string "transmission_type"
+    t.integer "seat_count"
+    t.integer "ride_height"
+    t.string "preferred_engine_type"
+    t.string "exterior_color"
+    t.string "interior_material"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "computers", force: :cascade do |t|
+    t.string "manufacturer"
+    t.string "year_started"
+    t.string "model"
+    t.string "processor"
+    t.string "graphics_chip"
+    t.string "exterior_color"
+    t.string "weight"
+    t.boolean "form_completed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "desks", force: :cascade do |t|
+    t.string "material_preference"
+    t.string "color"
+    t.string "sit_height"
+    t.string "stand_height"
+    t.integer "length"
+    t.integer "width"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "houses", force: :cascade do |t|
     t.string "address"
@@ -21,7 +70,18 @@ ActiveRecord::Schema.define(version: 2021_03_18_194737) do
     t.integer "square_feet"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "completed"
+  end
+
+  create_table "trains", force: :cascade do |t|
+    t.integer "length"
+    t.integer "width"
+    t.integer "height"
+    t.integer "maximum_speed"
+    t.integer "wheel_count"
+    t.string "color"
+    t.string "brand_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

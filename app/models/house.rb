@@ -1,8 +1,5 @@
 # Mostly cloned from User
 class House < ApplicationRecord
-  default_scope -> { where(completed: true) }
-  scope :uncompleted, -> { unscope(where: :completed).where(completed: false) }
-
   FORM_TURBO_FRAME_ID = 'house_multi_step_form'
 
   enum form_steps: {
@@ -23,7 +20,7 @@ class House < ApplicationRecord
   end
 
   with_options if: -> { required_for_step?(:house_stats) } do
-    validates :rooms, presence: true, numericality: { gt: 1 }
+    validates :rooms, presence: true, numericality: { greater_than: 1 }
     validates :square_feet, presence: true
   end
 

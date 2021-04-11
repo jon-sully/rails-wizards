@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: MyString
+  year_started: MyString
+  model: MyString
+  processor: MyString
+  graphics_chip: MyString
+  exterior_color: MyString
+  weight: MyString
+
+two:
+  manufacturer: MyString
+  year_started: MyString
+  model: MyString
+  processor: MyString
+  graphics_chip: MyString
+  exterior_color: MyString
+  weight: MyString

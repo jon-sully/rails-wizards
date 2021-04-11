@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new completed: false
+    @user = User.new
     @user.save! validate: false
     redirect_to user_step_path(@user, User.form_steps.keys.first)
   end
@@ -68,6 +68,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit([ :first_name, :last_name, :middle_name, 
         :favorite_pizza, :favorite_ice_cream, :favorite_sandwich, :email, 
-        :pet_count, :pet_name ]).merge(completed: true)
+        :pet_count, :pet_name ])
     end
 end

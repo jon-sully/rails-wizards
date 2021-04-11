@@ -1,0 +1,30 @@
+<%= form_with model: @boat, url: wizard_path do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="error_messages">
+      <% f.object.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Boat's User-Preferences</legend>
+
+    <div>
+      <%= f.label :color %>
+      <%= f.text_field :color %>
+    </div>
+
+    <div>
+      <%= f.label 'Primary Use (optional)' %>
+      <%= f.text_field :primary_use %>
+    </div>
+
+    <br/>
+
+    <div>
+      <%= link_to 'Previous Step', previous_wizard_path %>
+      <%= f.submit 'Complete' %>
+    </div>
+  </fieldset>
+<% end %>

@@ -1,0 +1,30 @@
+  <%= form_with model: @desk, url: wizard_path, method: :patch do |f| %>
+    <% if f.object.errors.any? %>
+      <div class="error_messages">
+        <% f.object.errors.full_messages.each do |error| %>
+          <p><%= error %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+    <fieldset>
+      <legend>Desk-Top Information</legend>
+
+      <div>
+        <%= f.label :length %>
+        <%= f.number_field :length %>
+      </div>
+
+      <div>
+        <%= f.label :width %>
+        <%= f.number_field :width %>
+      </div>
+
+      <br/>
+
+      <div>
+        <%= link_to 'Previous Step', previous_wizard_path %>
+        <%= f.submit 'Complete' %>
+      </div>
+    </fieldset>
+  <% end %>

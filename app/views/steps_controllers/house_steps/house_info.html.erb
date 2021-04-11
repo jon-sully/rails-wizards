@@ -1,5 +1,11 @@
+<div>
+  <p>
+    This should only ever be shown if /house_info was rendered by a full page load
+  </p>
+</div>
+
 <%= turbo_frame_tag House::FORM_TURBO_FRAME_ID do %>
-  <%= form_with model: @house, url: wizard_path do |f| %>
+  <%= form_with model: @house, url: wizard_path, method: :patch do |f| %>
     <% if f.object.errors.any? %>
       <div class="error_messages">
         <% f.object.errors.full_messages.each do |error| %>
@@ -21,7 +27,10 @@
         <%= f.text_field :exterior_color %>
       </div>
 
+      <br/>
+
       <div>
+        <%= link_to 'Previous Step', previous_wizard_path %>
         <%= f.submit 'Continue' %>
       </div>
     </fieldset>

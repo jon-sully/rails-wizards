@@ -1,0 +1,37 @@
+<%= turbo_frame_tag Computer::FORM_TURBO_FRAME_ID do %>
+  <%= form_with model: @computer, url: wizard_path, method: :patch do |f| %>
+    <% if f.object.errors.any? %>
+      <div class="error_messages">
+        <% f.object.errors.full_messages.each do |error| %>
+          <p><%= error %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+    <fieldset>
+      <legend>Internals</legend>
+
+      <div>
+        <%= f.label :model %>
+        <%= f.text_field :model %>
+      </div>
+
+      <div>
+        <%= f.label :processor %>
+        <%= f.text_field :processor %>
+      </div>
+
+      <div>
+        <%= f.label :graphics_chip %>
+        <%= f.text_field :graphics_chip %>
+      </div>
+
+      <br/>
+
+      <div>
+        <%= link_to 'Previous Step', previous_wizard_path %>
+        <%= f.submit 'Next Step' %>
+      </div>
+    </fieldset>
+  <% end %>
+<% end %>

@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Trains</h1>
+
+<p>
+  Trains is a plain-Jane Rails-scaffolded object. There is no multi-step form here and it purely
+  serves as a point of reference when looking at other models. This project does have Turbo installed
+  so Turbo Drive will be active for navigations around this object, but otherwise nothing special here!
+</p>
+<hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Length</th>
+      <th>Width</th>
+      <th>Height</th>
+      <th>Maximum speed</th>
+      <th>Wheel count</th>
+      <th>Color</th>
+      <th>Brand name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trains.each do |train| %>
+      <tr>
+        <td><%= train.length %></td>
+        <td><%= train.width %></td>
+        <td><%= train.height %></td>
+        <td><%= train.maximum_speed %></td>
+        <td><%= train.wheel_count %></td>
+        <td><%= train.color %></td>
+        <td><%= train.brand_name %></td>
+        <td><%= link_to 'Show', train %></td>
+        <td><%= link_to 'Edit', edit_train_path(train) %></td>
+        <td><%= link_to 'Destroy', train, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Train', new_train_path %>

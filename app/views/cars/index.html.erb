@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cars</h1>
+
+<p>
+  The Cars wizard implements the same id-in-URL routing as the Users wizard but adds on the Turbo Frames
+  layer to provide a nicer, snappier UI without page-level or Turbo-Drive-level reloads on each subsequent
+  frame
+</p>
+<hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Transmission type</th>
+      <th>Seat count</th>
+      <th>Ride height</th>
+      <th>Preferred engine type</th>
+      <th>Exterior color</th>
+      <th>Interior material</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.transmission_type %></td>
+        <td><%= car.seat_count %></td>
+        <td><%= car.ride_height %></td>
+        <td><%= car.preferred_engine_type %></td>
+        <td><%= car.exterior_color %></td>
+        <td><%= car.interior_material %></td>
+        <td><%= link_to 'Show', car %></td>
+        <td><%= link_to 'Edit', edit_car_path(car) %></td>
+        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Car', new_car_path %>

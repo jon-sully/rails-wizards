@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Computers</h1>
+
+<p>
+  Computers are the 'final' iteration of wizards with database persistence. They give a live example
+  of using database-persistence along with a default_scope (and other scopes) to give the application
+  a more <i>normalized</i> use of the Model's base-level query interface throughout the rest of the
+  application. With this strategy, any time I call a MyModel.last (without using the specific scope
+  that allows for the non-completed-records), I can be sure that the record I'll get is one that has
+  completed all of the necessary form steps, not a partially-complete record.
+</p>
+<hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Manufacturer</th>
+      <th>Year started</th>
+      <th>Model</th>
+      <th>Processor</th>
+      <th>Graphics chip</th>
+      <th>Exterior color</th>
+      <th>Weight</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @computers.each do |computer| %>
+      <tr>
+        <td><%= computer.manufacturer %></td>
+        <td><%= computer.year_started %></td>
+        <td><%= computer.model %></td>
+        <td><%= computer.processor %></td>
+        <td><%= computer.graphics_chip %></td>
+        <td><%= computer.exterior_color %></td>
+        <td><%= computer.weight %></td>
+        <td><%= link_to 'Show', computer %></td>
+        <td><%= link_to 'Edit', edit_computer_path(computer) %></td>
+        <td><%= link_to 'Destroy', computer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Computer', new_computer_path %>

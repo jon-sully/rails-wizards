@@ -25,8 +25,14 @@
       <%= f.text_field :favorite_sandwich %>
     </div>
 
+    <p>
+      These fields are optional so we can add a 'skip' button
+    </p>
+
     <div>
+      <%= link_to 'Previous Step', previous_wizard_path %>
       <%= f.submit 'Next Step' %>
+      <%= link_to 'Skip', next_wizard_path %>
     </div>
   </fieldset>
 <% end %>

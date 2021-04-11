@@ -1,0 +1,62 @@
+<%= form_with(model: boat) do |form| %>
+  <% if boat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(boat.errors.count, "error") %> prohibited this boat from being saved:</h2>
+
+      <ul>
+        <% boat.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location_docked %>
+    <%= form.text_field :location_docked %>
+  </div>
+
+  <div class="field">
+    <%= form.label :length %>
+    <%= form.number_field :length %>
+  </div>
+
+  <div class="field">
+    <%= form.label :width %>
+    <%= form.number_field :width %>
+  </div>
+
+  <div class="field">
+    <%= form.label :displacement %>
+    <%= form.number_field :displacement %>
+  </div>
+
+  <div class="field">
+    <%= form.label :maximum_speed %>
+    <%= form.number_field :maximum_speed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :engine_count %>
+    <%= form.number_field :engine_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :primary_use %>
+    <%= form.text_field :primary_use %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

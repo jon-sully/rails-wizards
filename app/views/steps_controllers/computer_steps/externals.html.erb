@@ -1,0 +1,32 @@
+<%= turbo_frame_tag Computer::FORM_TURBO_FRAME_ID do %>
+  <%= form_with model: @computer, url: wizard_path, method: :patch, data: { turbo_frame: :_top } do |f| %>
+    <% if f.object.errors.any? %>
+      <div class="error_messages">
+        <% f.object.errors.full_messages.each do |error| %>
+          <p><%= error %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+    <fieldset>
+      <legend>Externals</legend>
+
+      <div>
+        <%= f.label :exterior_color %>
+        <%= f.text_field :exterior_color %>
+      </div>
+
+      <div>
+        <%= f.label :weight %>
+        <%= f.number_field :weight %>
+      </div>
+
+      <br/>
+
+      <div>
+        <%= link_to 'Previous Step', previous_wizard_path %>
+        <%= f.submit 'Complete' %>
+      </div>
+    </fieldset>
+  <% end %>
+<% end %>

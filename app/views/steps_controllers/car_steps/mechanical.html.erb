@@ -1,0 +1,32 @@
+<%= turbo_frame_tag Car::FORM_TURBO_FRAME_ID do %>
+  <%= form_with model: @car, url: wizard_path, method: :patch do |f| %>
+    <% if f.object.errors.any? %>
+      <div class="error_messages">
+        <% f.object.errors.full_messages.each do |error| %>
+          <p><%= error %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+    <fieldset>
+      <legend>Mechanical Things</legend>
+
+      <div>
+        <%= f.label :preferred_engine_type %>
+        <%= f.text_field :preferred_engine_type %>
+      </div>
+
+      <div>
+        <%= f.label :ride_height %>
+        <%= f.number_field :ride_height %>
+      </div>
+
+      <br/>
+
+      <div>
+        <%= link_to 'Previous Step', previous_wizard_path %>
+        <%= f.submit 'Next Step' %>
+      </div>
+    </fieldset>
+  <% end %>
+<% end %>

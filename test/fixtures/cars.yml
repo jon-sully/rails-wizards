@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transmission_type: MyString
+  seat_count: 1
+  ride_height: 1
+  preferred_engine_type: MyString
+  exterior_color: MyString
+  interior_material: MyString
+
+two:
+  transmission_type: MyString
+  seat_count: 1
+  ride_height: 1
+  preferred_engine_type: MyString
+  exterior_color: MyString
+  interior_material: MyString

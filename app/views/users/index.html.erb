@@ -2,6 +2,26 @@
 
 <h1>Users</h1>
 
+<p>
+  Users is the baseline model for the database-persisted wizard approach. Every time someone hits 'new'
+  a new (empty) record is created in the database and the user is redirected to the steps controller
+  nested inside that unique resource's URL. This is a very straightforward approach, tried and true.
+  <br/>
+  <br/>
+  Turbo Drive has been specifically disabled for this wizard just to ensure a fully-baseline operation.
+  It is enabled in the Boats wizard and beyond. For each step in this wizard you should see your browser's
+  native loading bar run on each step's submit button.
+  <br/>
+  <br/>
+  Aside from the risk of runaway database record creation, this baseline approach can muddy up your
+  development experience since any given MyModel.last could actually be in incomplete model. We attempt
+  to resolve this issue in later examples with default_scopes and etc, but we cannot escape the reality
+  that each time the wizard is executed, a new database record is created; a new primary key ID is used.
+  That side effect and this approach should be carefully considered before use in a very-high-traffic
+  environemnt, especially those that have no User object / authentication to correlate records to.
+</p>
+<hr/>
+
 <table>
   <thead>
     <tr>

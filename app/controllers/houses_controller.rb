@@ -12,9 +12,8 @@ class HousesController < ApplicationController
 
   # GET /houses/new
   def new
-    @house = House.new completed: false
-    @house.save! validate: false
-    redirect_to house_step_path(@house, House.form_steps.keys.first)
+    Rails.cache.fetch(session.id) { Hash.new }
+    redirect_to build_house_path(House.form_steps.keys.first)
   end
 
   # GET /houses/1/edit

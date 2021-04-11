@@ -1,0 +1,30 @@
+<%= form_with model: @boat, url: wizard_path do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="error_messages">
+      <% f.object.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Boat's Powertrain</legend>
+
+    <div>
+      <%= f.label :maximum_speed %>
+      <%= f.number_field :maximum_speed %>
+    </div>
+
+    <div>
+      <%= f.label :engine_count %>
+      <%= f.number_field :engine_count %>
+    </div>
+
+    <br/>
+
+    <div>
+      <%= link_to 'Previous Step', previous_wizard_path %>
+      <%= f.submit 'Next Step' %>
+    </div>
+  </fieldset>
+<% end %>

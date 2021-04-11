@@ -1,0 +1,47 @@
+<%= form_with(model: desk) do |form| %>
+  <% if desk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(desk.errors.count, "error") %> prohibited this desk from being saved:</h2>
+
+      <ul>
+        <% desk.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :material_preference %>
+    <%= form.text_field :material_preference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sit_height %>
+    <%= form.text_field :sit_height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stand_height %>
+    <%= form.text_field :stand_height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :length %>
+    <%= form.number_field :length %>
+  </div>
+
+  <div class="field">
+    <%= form.label :width %>
+    <%= form.number_field :width %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

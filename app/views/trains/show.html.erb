@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @train.length %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @train.width %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @train.height %>
+</p>
+
+<p>
+  <strong>Maximum speed:</strong>
+  <%= @train.maximum_speed %>
+</p>
+
+<p>
+  <strong>Wheel count:</strong>
+  <%= @train.wheel_count %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @train.color %>
+</p>
+
+<p>
+  <strong>Brand name:</strong>
+  <%= @train.brand_name %>
+</p>
+
+<%= link_to 'Edit', edit_train_path(@train) %> |
+<%= link_to 'Back', trains_path %>

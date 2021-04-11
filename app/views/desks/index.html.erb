@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Desks</h1>
+
+<p>
+  Desks is the baseline model for the cache-persisted wizard approach. Every time someone hits 'new'
+  we allocate a small amount of space in the Rails Cache to hold all of the model attributes the user
+  submits while getting through all the form steps (validating along the way). At the end we hydrate
+  a new instance of the model with the attributes and save it as a new, whole, database record.
+</p>
+<p>
+  Because Desks and Houses both utilize a session-keyed slot in the Rails cache, the cache key must be
+  amended to include a delineation between the two. Because the House workflow is the 'best' of the two,
+  I've given it the plain `session.id` key and changed Desks to use a "#{session.id}_desk_form" key format.
+  You won't need to worry about this if you only have one cache persisted Wizard in your project.
+</p>
+<hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Material preference</th>
+      <th>Color</th>
+      <th>Sit height</th>
+      <th>Stand height</th>
+      <th>Length</th>
+      <th>Width</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @desks.each do |desk| %>
+      <tr>
+        <td><%= desk.material_preference %></td>
+        <td><%= desk.color %></td>
+        <td><%= desk.sit_height %></td>
+        <td><%= desk.stand_height %></td>
+        <td><%= desk.length %></td>
+        <td><%= desk.width %></td>
+        <td><%= link_to 'Show', desk %></td>
+        <td><%= link_to 'Edit', edit_desk_path(desk) %></td>
+        <td><%= link_to 'Destroy', desk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Desk', new_desk_path %>

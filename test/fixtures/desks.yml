@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  material_preference: MyString
+  color: MyString
+  sit_height: MyString
+  stand_height: MyString
+  length: 1
+  width: 1
+
+two:
+  material_preference: MyString
+  color: MyString
+  sit_height: MyString
+  stand_height: MyString
+  length: 1
+  width: 1

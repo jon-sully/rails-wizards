@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Material preference:</strong>
+  <%= @desk.material_preference %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @desk.color %>
+</p>
+
+<p>
+  <strong>Sit height:</strong>
+  <%= @desk.sit_height %>
+</p>
+
+<p>
+  <strong>Stand height:</strong>
+  <%= @desk.stand_height %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @desk.length %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @desk.width %>
+</p>
+
+<%= link_to 'Edit', edit_desk_path(@desk) %> |
+<%= link_to 'Back', desks_path %>

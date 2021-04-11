@@ -1,6 +1,5 @@
 <%= turbo_frame_tag House::FORM_TURBO_FRAME_ID do %>
-  <%# Have to add the data-turbo-frame to the form itself since this is the last step and we want to redirect %>
-  <%= form_with model: @house, url: wizard_path, data: { 'turbo-frame' => :_top} do |f| %>
+  <%= form_with model: @house, url: wizard_path, method: :patch, data: { turbo_frame: :_top } do |f| %>
     <% if f.object.errors.any? %>
       <div class="error_messages">
         <% f.object.errors.full_messages.each do |error| %>
@@ -22,7 +21,10 @@
         <%= f.text_field :square_feet %>
       </div>
 
+      <br/>
+
       <div>
+        <%= link_to 'Previous Step', previous_wizard_path %>
         <%= f.submit 'Complete' %>
       </div>
     </fieldset>

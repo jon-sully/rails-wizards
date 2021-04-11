@@ -1,0 +1,30 @@
+<%= form_with model: @desk, url: wizard_path, method: :patch do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="error_messages">
+      <% f.object.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Preferences</legend>
+
+    <div>
+      <%= f.label :material_preference %>
+      <%= f.text_field :material_preference %>
+    </div>
+
+    <div>
+      <%= f.label :color %>
+      <%= f.text_field :color %>
+    </div>
+
+    <br/>
+
+    <div>
+      <%= link_to 'Nevermind', desks_path %>
+      <%= f.submit 'Next Step' %>
+    </div>
+  </fieldset>
+<% end %>

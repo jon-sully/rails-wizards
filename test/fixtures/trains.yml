@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  length: 1
+  width: 1
+  height: 1
+  maximum_speed: 1
+  wheel_count: 1
+  color: MyString
+  brand_name: MyString
+
+two:
+  length: 1
+  width: 1
+  height: 1
+  maximum_speed: 1
+  wheel_count: 1
+  color: MyString
+  brand_name: MyString

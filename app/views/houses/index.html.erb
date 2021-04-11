@@ -2,6 +2,33 @@
 
 <h1>Houses</h1>
 
+<p>
+  Houses is the model we're using for a cache-persisted multi-step form that also implements Turbo
+  Frames to create a really nice SPA-like experience. Since we're using cache persistence we won't
+  need to worry about partial objects in the database, the ActiveRecord/DB Record will only be created
+  once the full wizard has been completed.
+
+  <br/>
+  <br/>
+
+  On an opinion level, this feels like the direction Rails apps should go in. Turbo Frames make the UI
+  workflow very quick and smooth while keeping all validations server-side and not littering the
+  database with partially-completed records.
+
+  <br/>
+  <br/>
+
+  The only downside here is that it requires Rails Cache to be enabled during development, which isn't
+  necessarily the most "Railsy" thing — your cache should ultimately be dispensible and your application
+  should work 100% functionally without it — it should purely be a transparent performance booster for the
+  Rails app. Manifesting application logic (even if it's just letting consumers 'borrow' a little cache
+  space for their mid-wizard form fields) into the Rails cache is generally frowned upon. While not
+  technically breaking MVC since we're not persisting a model via the cache, the dependency on the cache
+  for the system to operate properly has a notable impact. Please take time to assess that impact for your
+  specific use-case.
+</p>
+<hr/>
+
 <table>
   <thead>
     <tr>

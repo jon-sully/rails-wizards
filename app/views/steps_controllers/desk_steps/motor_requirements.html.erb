@@ -1,0 +1,30 @@
+<%= form_with model: @desk, url: wizard_path, method: :patch do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="error_messages">
+      <% f.object.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Usage Heights</legend>
+
+    <div>
+      <%= f.label :sit_height %>
+      <%= f.text_field :sit_height %>
+    </div>
+
+    <div>
+      <%= f.label :stand_height %>
+      <%= f.text_field :stand_height %>
+    </div>
+
+    <br/>
+
+    <div>
+      <%= link_to 'Previous Step', previous_wizard_path %>
+      <%= f.submit 'Continue' %>
+    </div>
+  </fieldset>
+<% end %>

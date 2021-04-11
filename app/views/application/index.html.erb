@@ -1,6 +1,33 @@
-<div>
-  <%= link_to 'Users (Non-Hotwire)', users_path %>
-</div>
-<div>
-  <%= link_to 'Houses (Howired)', houses_path %>
-</div>
+<code>
+  <div>
+    <%= link_to '🚂 Trains &nbsp;&nbsp;&nbsp;(No-multi-step) (Vanilla Rails Scaffold)'.html_safe, trains_path %>
+  </div>
+  
+  <br/>
+
+  <div>
+    <%= link_to '👨‍💻 Users &nbsp;&nbsp;&nbsp;&nbsp;(Database-Persisted, Id-in-URL, No Turbo-Frames 🔴)'.html_safe, users_path %>
+  </div>
+
+  <div>
+    <%= link_to '🚤 Boats &nbsp;&nbsp;&nbsp;&nbsp;(Database-Persisted, Id-in-Session, No Turbo-Frames 🔴)'.html_safe, boats_path %>
+  </div>
+
+  <div>
+    <%= link_to '🚙 Cars &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Database-Persisted, Id-in-URL, Turbo Framed 🟢)'.html_safe, cars_path %>
+  </div>
+
+  <div>
+    <%= link_to '💻 Computers (Database-Persisted, Id-in_URL, Turbo-Framed 🟢, Default-Scoped)'.html_safe, computers_path %>
+  </div>
+
+  <br/>
+
+  <div>
+    <%= link_to '🧍‍♂️ Desks &nbsp;&nbsp;&nbsp;&nbsp;(Cache-Persisted, Session-keyed, No Turbo-Frames 🔴)'.html_safe, desks_path %>
+  </div>
+
+  <div>
+    <%= link_to '🏡 Houses &nbsp;&nbsp;&nbsp;(Cache-Persisted, Session-keyed, Turbo-Framed 🟢)'.html_safe, houses_path %>
+  </div>
+</code>

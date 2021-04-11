@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @boat.name %>
+</p>
+
+<p>
+  <strong>Location docked:</strong>
+  <%= @boat.location_docked %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @boat.length %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @boat.width %>
+</p>
+
+<p>
+  <strong>Displacement:</strong>
+  <%= @boat.displacement %>
+</p>
+
+<p>
+  <strong>Maximum speed:</strong>
+  <%= @boat.maximum_speed %>
+</p>
+
+<p>
+  <strong>Engine count:</strong>
+  <%= @boat.engine_count %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @boat.color %>
+</p>
+
+<p>
+  <strong>Primary use:</strong>
+  <%= @boat.primary_use %>
+</p>
+
+<%= link_to 'Edit', edit_boat_path(@boat) %> |
+<%= link_to 'Back', boats_path %>
