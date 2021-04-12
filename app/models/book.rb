@@ -1,3 +1,6 @@
+# Generated from
+# rails g scaffold Book title author_name year_published:integer isbn:integer primary_topic fictionaility
+
 class Book < ApplicationRecord
   FORM_TURBO_FRAME_ID = 'book_multi_step_form'
 

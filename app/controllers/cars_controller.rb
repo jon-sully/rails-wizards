@@ -13,8 +13,8 @@ class CarsController < ApplicationController
   # GET /cars/new
   def new
     @car = Car.new
-    @car.save! validate: false
-    redirect_to car_step_path(@car, Car.form_steps.keys.first)
+    @car.save! validate: false                                      # Only non-vanilla-Rails code here
+    redirect_to car_step_path(@car, Car.form_steps.keys.first)      # Only non-vanilla-Rails code here
   end
 
   # GET /cars/1/edit

@@ -1,3 +1,6 @@
+# Generated from
+# rails g scaffold Desk material_preference color sit_height stand_height length:integer width:integer
+
 class Desk < ApplicationRecord
   enum form_steps: {
     preferences: [:material_preference, :color],

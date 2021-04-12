@@ -13,8 +13,8 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @user.save! validate: false
-    redirect_to user_step_path(@user, User.form_steps.keys.first)
+    @user.save! validate: false                                         # Only non-vanilla-Rails code here
+    redirect_to user_step_path(@user, User.form_steps.keys.first)       # Only non-vanilla-Rails code here
   end
 
   # GET /users/1/edit

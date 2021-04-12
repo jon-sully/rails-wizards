@@ -12,9 +12,9 @@ class ComputersController < ApplicationController
 
   # GET /computers/new
   def new
-    @computer = Computer.new form_completed: false
-    @computer.save! validate: false
-    redirect_to computer_step_path(@computer, Computer.form_steps.keys.first)
+    @computer = Computer.new form_completed: false                                  # Only non-vanilla-Rails code here
+    @computer.save! validate: false                                                 # Only non-vanilla-Rails code here
+    redirect_to computer_step_path(@computer, Computer.form_steps.keys.first)       # Only non-vanilla-Rails code here
   end
 
   # GET /computers/1/edit

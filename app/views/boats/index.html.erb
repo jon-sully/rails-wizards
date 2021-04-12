@@ -52,3 +52,78 @@
 <br>
 
 <%= link_to 'New Boat', new_boat_path %>
+
+<hr style="margin-top: 20px;"/>
+
+<details style="margin-top: 20px;">
+<summary>Boat Model Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'models', 'boat.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Boat Routes Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+resources :boats
+resources :build_boat, only: [:update, :show], controller: 'steps_controllers/boat_steps'
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Boats Controller Code (Click to see) (Mostly vanilla Rails scaffold)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'boats_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Boat Steps Controller Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'steps_controllers', 'boat_steps_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 1 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'boat_steps', 'basics.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 2 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'boat_steps', 'sizes.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 3 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'boat_steps', 'powertrain.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 4 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'boat_steps', 'preferences.html.erb')).strip! %>
+</code>
+</pre>
+</details>

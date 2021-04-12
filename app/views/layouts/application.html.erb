@@ -6,8 +6,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag :application, media: :all, data: { turbo_track: :reload } %>
+    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css", data: { turbo_track: :reload } %>
+    <%= javascript_pack_tag :application, data: { turbo_track: :reload } %>
   </head>
 
   <body>
@@ -16,5 +17,7 @@
     </a>
     <hr/>
     <%= yield %>
+    <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js', data: { turbo_track: :reload } %>
+    <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js', data: { turbo_track: :reload } %>
   </body>
 </html>

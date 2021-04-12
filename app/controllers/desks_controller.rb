@@ -12,8 +12,8 @@ class DesksController < ApplicationController
 
   # GET /desks/new
   def new
-    Rails.cache.fetch("#{session.id}_desk_form") { Hash.new }
-    redirect_to build_desk_path(Desk.form_steps.keys.first)
+    Rails.cache.fetch("#{session.id}_desk_form") { Hash.new }         # Only non-vanilla-Rails code here
+    redirect_to build_desk_path(Desk.form_steps.keys.first)           # Only non-vanilla-Rails code here
   end
 
   # GET /desks/1/edit

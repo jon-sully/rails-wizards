@@ -117,45 +117,14 @@ Defined in the model:
 ^ This does make the 'create' side of things a little wonky since you'll need to make an
 object within a scope every time. So `User.
 
-Notes:
 
-```ruby
+Aside from the risk of runaway database record creation, this baseline approach can muddy up your
+development experience since any given MyModel.last could actually be in incomplete model. We attempt
+to resolve this issue in later examples with default_scopes and etc, but we cannot escape the reality
+that each time the wizard is executed, a new database record is created; a new primary key ID is used.
+That side effect and this approach should be carefully considered before use in a very-high-traffic
+environemnt, especially those that have no User object / authentication to correlate records to.
 
-
-  # All use Turbo Drive
-
-  # ✅ Database persisted, id-in-url, turbo frames
-  # ✅ Database persisted, id-in-url, turbo frames, default-scoped
-  # ✅ 
-
-  # Houses
-  #   Address, current_family_last_name; interior_color, exterior_color, rooms#, square_feet#
-  # 
-  # Trains
-  #   Length, height, width; max speed, number of wheels; color, branding logo
-  # rails g scaffold Train length:integer width:integer height:integer maximum_speed:integer wheel_count:integer color brand_name
-  # 
-  # Boats
-  #   Length, width, displacement; max speed, number of engines; color, primary use
-  # rails g scaffold Boat name location_docked length:integer width:integer displacement:integer maximum_speed:integer engine_count:integer color primary_use
-  # 
-  # Cars
-  #   Number of seats; transmission type, ride height, preferred engine type; exterior color, interior material
-  # rails g scaffold Car transmission_type seat_count:integer ride_height:integer preferred_engine_type exterior_color interior_material
-  # 
-  # Desks
-  #   Material preference; color, material; sit height, stand height
-  # rails g scaffold Desk material_preference color sit_height stand_height length:integer width:integer
-  # 
-  # Users
-  #   first name, middle name, last name; favorite_pizza, favorite_ice_cream, favorite_sandwich; pet_count, pet_name 
-  # 
-  # 
-  # Computers
-  #   manufacturer_name, year_started; model_name, processor_name, graphics_chip_name; color, weight
-  # rails g scaffold Computer manufacturer year_started model processor graphics_chip exterior_color weight form_completed:boolean
-  # 
-  # Books
-  # rails g scaffold Book title author_name year_published:integer isbn:integer primary_topic fictionaility
-  # 
-```
+On an opinion level, this feels like the direction Rails apps should go in. Turbo Frames make the UI
+workflow very quick and smooth while keeping all validations server-side and not littering the
+database with partially-completed records.

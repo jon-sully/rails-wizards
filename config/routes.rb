@@ -36,7 +36,5 @@ Rails.application.routes.draw do
     resources :step, only: [:update, :show], controller: 'steps_controllers/book_steps'
   end
 
-  # /build_book/1241421/basic_info
-
   root 'application#index'
 end

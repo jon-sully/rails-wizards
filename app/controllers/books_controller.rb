@@ -12,9 +12,9 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    book_builder_key = Random.urlsafe_base64(6)
-    Rails.cache.fetch(book_builder_key) { Hash.new }
-    redirect_to build_book_step_path(book_builder_key, Book.form_steps.keys.first)
+    book_builder_key = Random.urlsafe_base64(6)                                       # Only non-vanilla-Rails code here
+    Rails.cache.fetch(book_builder_key) { Hash.new }                                  # Only non-vanilla-Rails code here
+    redirect_to build_book_step_path(book_builder_key, Book.form_steps.keys.first)    # Only non-vanilla-Rails code here
   end
 
   # GET /books/1/edit

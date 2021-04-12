@@ -1,3 +1,6 @@
+# Generated from
+# rails g scaffold Computer manufacturer year_started model processor graphics_chip exterior_color weight form_completed:boolean
+
 class Computer < ApplicationRecord
   default_scope { where form_completed: true }
   scope :form_not_completed_only, -> { unscope(where: :form_completed).where(form_completed: false) }

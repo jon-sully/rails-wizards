@@ -2,6 +2,14 @@
 
 <h1>Books</h1>
 
+<p>
+  Books represent most of the same premise as Houses but use a cache-key-in-URL approach to better
+  accomodate for the down-sides of routing in-session. This helps the outside view appear to be more
+  database-like even though the partial model persists only in the cache. We take a randomized character
+  approach for this setup.
+</p>
+<hr/>
+
 <table>
   <thead>
     <tr>
@@ -35,3 +43,71 @@
 <br>
 
 <%= link_to 'New Book', new_book_path %>
+
+<hr style="margin-top: 20px;"/>
+
+<details style="margin-top: 20px;">
+<summary>Book Model Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'models', 'book.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Book Routes Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+resources :books
+resources :build_book, only: [] do
+  resources :step, only: [:update, :show], controller: 'steps_controllers/book_steps'
+end
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Books Controller Code (Click to see) (Mostly vanilla Rails scaffold)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'books_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Book Steps Controller Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'steps_controllers', 'book_steps_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 1 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'book_steps', 'basics.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 2 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'book_steps', 'organizational.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 3 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'book_steps', 'details.html.erb')).strip! %>
+</code>
+</pre>
+</details>

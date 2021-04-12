@@ -42,3 +42,70 @@
 <br>
 
 <%= link_to 'New Car', new_car_path %>
+
+<hr style="margin-top: 20px;"/>
+
+<details style="margin-top: 20px;">
+<summary>Car Model Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'models', 'car.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Car Routes Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+resources :cars do
+  resources :steps, only: [:show, :update], controller: 'steps_controllers/car_steps'
+end
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Cars Controller Code (Click to see) (Mostly vanilla Rails scaffold)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'cars_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Car Steps Controller Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'steps_controllers', 'car_steps_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 1 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'car_steps', 'functional_parts.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 2 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'car_steps', 'mechanical.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 3 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'car_steps', 'user_choices.html.erb')).strip! %>
+</code>
+</pre>
+</details>

@@ -1,11 +1,7 @@
-class User < ApplicationRecord
-  # NOTE: This default scope exists as a mechanism to ensure that this model is
-  # never called _without_ a scope applied
-  # default_scope { where(no_scope_applied_to_model: "That's bad") }
-  # scope :remove_default_scope
-  # scope :awaiting_contact, -> { remove_default_scope.where.not(favorite_pizza: nil) }
-  # scope :awaiting_response, -> { remove_default_scope.where.not(favorite_ice_cream: nil) }
+# Generated from
+# rails g scaffold User first_name middle_name last_name favorite_pizza favorite_ice_cream favorite_sandwich pet_count:integer pet_name 
 
+class User < ApplicationRecord
   enum form_steps: {
     names: [:first_name, :middle_name, :last_name],
     foods: [:favorite_pizza, :favorite_ice_cream, :favorite_sandwich],

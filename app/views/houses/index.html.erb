@@ -7,17 +7,8 @@
   Frames to create a really nice SPA-like experience. Since we're using cache persistence we won't
   need to worry about partial objects in the database, the ActiveRecord/DB Record will only be created
   once the full wizard has been completed.
-
-  <br/>
-  <br/>
-
-  On an opinion level, this feels like the direction Rails apps should go in. Turbo Frames make the UI
-  workflow very quick and smooth while keeping all validations server-side and not littering the
-  database with partially-completed records.
-
-  <br/>
-  <br/>
-
+</p>
+<p>
   The only downside here is that it requires Rails Cache to be enabled during development, which isn't
   necessarily the most "Railsy" thing — your cache should ultimately be dispensible and your application
   should work 100% functionally without it — it should purely be a transparent performance booster for the
@@ -62,3 +53,69 @@
 <br>
 
 <%= link_to 'New House', new_house_path %>
+
+<hr style="margin-top: 20px;"/>
+
+<details style="margin-top: 20px;">
+<summary>House Model Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'models', 'house.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>House Routes Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+resources :houses
+resources :build_house, only: [:update, :show], controller: 'steps_controllers/house_steps'
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Houses Controller Code (Click to see) (Mostly vanilla Rails scaffold)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'houses_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>House Steps Controller Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'steps_controllers', 'house_steps_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 1 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'house_steps', 'address_info.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 2 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'house_steps', 'house_info.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 3 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'house_steps', 'house_stats.html.erb')).strip! %>
+</code>
+</pre>
+</details>

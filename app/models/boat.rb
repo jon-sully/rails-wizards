@@ -1,3 +1,6 @@
+# Generated from
+# rails g scaffold Boat name location_docked length:integer width:integer displacement:integer maximum_speed:integer engine_count:integer color primary_use
+
 class Boat < ApplicationRecord
   enum form_steps: {
     basics: [:name, :location_docked],

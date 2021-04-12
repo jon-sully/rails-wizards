@@ -12,8 +12,8 @@ class HousesController < ApplicationController
 
   # GET /houses/new
   def new
-    Rails.cache.fetch(session.id) { Hash.new }
-    redirect_to build_house_path(House.form_steps.keys.first)
+    Rails.cache.fetch(session.id) { Hash.new }                     # Only non-vanilla-Rails code here
+    redirect_to build_house_path(House.form_steps.keys.first)      # Only non-vanilla-Rails code here
   end
 
   # GET /houses/1/edit

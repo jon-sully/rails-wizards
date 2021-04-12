@@ -6,7 +6,8 @@
   Desks is the baseline model for the cache-persisted wizard approach. Every time someone hits 'new'
   we allocate a small amount of space in the Rails Cache to hold all of the model attributes the user
   submits while getting through all the form steps (validating along the way). At the end we hydrate
-  a new instance of the model with the attributes and save it as a new, whole, database record.
+  a new instance of the ActiveRecord model with the attributes and save it as a new, whole, database
+  record.
 </p>
 <p>
   Because Desks and Houses both utilize a session-keyed slot in the Rails cache, the cache key must be
@@ -49,3 +50,69 @@
 <br>
 
 <%= link_to 'New Desk', new_desk_path %>
+
+<hr style="margin-top: 20px;"/>
+
+<details style="margin-top: 20px;">
+<summary>Desk Model Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'models', 'desk.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Desk Routes Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+resources :desks
+resources :build_desk, only: [:update, :show], controller: 'steps_controllers/desk_steps'
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Desks Controller Code (Click to see) (Mostly vanilla Rails scaffold)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'desks_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Desk Steps Controller Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'steps_controllers', 'desk_steps_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 1 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'desk_steps', 'preferences.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 2 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'desk_steps', 'motor_requirements.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 3 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'desk_steps', 'desktop_information.html.erb')).strip! %>
+</code>
+</pre>
+</details>

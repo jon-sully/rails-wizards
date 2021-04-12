@@ -6,9 +6,8 @@
   Computers are the 'final' iteration of wizards with database persistence. They give a live example
   of using database-persistence along with a default_scope (and other scopes) to give the application
   a more <i>normalized</i> use of the Model's base-level query interface throughout the rest of the
-  application. With this strategy, any time I call a MyModel.last (without using the specific scope
-  that allows for the non-completed-records), I can be sure that the record I'll get is one that has
-  completed all of the necessary form steps, not a partially-complete record.
+  application. With this strategy, any time I call a Computer.first I can be sure that the record I'll
+  get is one that has completed all of the necessary form steps, not a partially-complete record.
 </p>
 <hr/>
 
@@ -47,3 +46,70 @@
 <br>
 
 <%= link_to 'New Computer', new_computer_path %>
+
+<hr style="margin-top: 20px;"/>
+
+<details style="margin-top: 20px;">
+<summary>Computer Model Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'models', 'computer.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Computer Routes Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+resources :computers do
+  resources :steps, only: [:show, :update], controller: 'steps_controllers/computer_steps'
+end
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Computers Controller Code (Click to see) (Mostly vanilla Rails scaffold)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'computers_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Computer Steps Controller Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'steps_controllers', 'computer_steps_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 1 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'computer_steps', 'maker_details.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 2 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'computer_steps', 'internals.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 3 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'computer_steps', 'externals.html.erb')).strip! %>
+</code>
+</pre>
+</details>

@@ -6,19 +6,11 @@
   Users is the baseline model for the database-persisted wizard approach. Every time someone hits 'new'
   a new (empty) record is created in the database and the user is redirected to the steps controller
   nested inside that unique resource's URL. This is a very straightforward approach, tried and true.
-  <br/>
-  <br/>
+</p>
+<p>
   Turbo Drive has been specifically disabled for this wizard just to ensure a fully-baseline operation.
   It is enabled in the Boats wizard and beyond. For each step in this wizard you should see your browser's
   native loading bar run on each step's submit button.
-  <br/>
-  <br/>
-  Aside from the risk of runaway database record creation, this baseline approach can muddy up your
-  development experience since any given MyModel.last could actually be in incomplete model. We attempt
-  to resolve this issue in later examples with default_scopes and etc, but we cannot escape the reality
-  that each time the wizard is executed, a new database record is created; a new primary key ID is used.
-  That side effect and this approach should be carefully considered before use in a very-high-traffic
-  environemnt, especially those that have no User object / authentication to correlate records to.
 </p>
 <hr/>
 
@@ -61,3 +53,70 @@
 <br>
 
 <%= link_to 'New User', new_user_path %>
+
+<hr style="margin-top: 20px;"/>
+
+<details style="margin-top: 20px;">
+<summary>User Model Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'models', 'user.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>User Routes Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+resources :users do 
+  resources :steps, only: [:show, :update], controller: 'steps_controllers/user_steps'
+end
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Users Controller Code (Click to see) (Mostly vanilla Rails scaffold)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'users_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>User Steps Controller Code (Click to see)</summary>
+<pre>
+<code class="language-ruby">
+<%= render plain: File.read(Rails.root.join('app', 'controllers', 'steps_controllers', 'user_steps_controller.rb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 1 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'user_steps', 'names.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 2 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'user_steps', 'foods.html.erb')).strip! %>
+</code>
+</pre>
+</details>
+
+<details style="margin-top: 20px;">
+<summary>Wizard Step 3 View Code (Click to see)</summary>
+<pre>
+<code class="language-erb">
+<%= render plain: File.read(Rails.root.join('app', 'views', 'steps_controllers', 'user_steps', 'pets.html.erb')).strip! %>
+</code>
+</pre>
+</details>

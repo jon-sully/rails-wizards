@@ -1,3 +1,6 @@
+# Generated from
+# rails g scaffold Car transmission_type seat_count:integer ride_height:integer preferred_engine_type exterior_color interior_material
+
 class Car < ApplicationRecord
   FORM_TURBO_FRAME_ID = 'car_multi_step_form'
 
