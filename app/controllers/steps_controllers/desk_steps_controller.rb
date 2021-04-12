@@ -12,7 +12,7 @@ module StepsControllers
 
     def update
       desk_attrs = Rails.cache.fetch("#{session.id}_desk_form").merge desk_params
-      @desk = Desk.new desk_attrs.merge(form_step: step.to_sym)
+      @desk = Desk.new desk_attrs
 
       if @desk.valid?
         Rails.cache.write "#{session.id}_desk_form", desk_attrs

@@ -1,0 +1,32 @@
+<%= turbo_frame_tag Book::FORM_TURBO_FRAME_ID do %>
+  <%= form_with model: @book, url: wizard_path, method: :patch do |f| %>
+    <% if f.object.errors.any? %>
+      <div class="error_messages">
+        <% f.object.errors.full_messages.each do |error| %>
+          <p><%= error %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+    <fieldset>
+      <legend>Book Basics</legend>
+
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+
+      <div>
+        <%= f.label :author_name %>
+        <%= f.text_field :author_name %>
+      </div>
+
+      <br/>
+
+      <div>
+        <%= link_to 'Nevermind', books_path, data: { turbo_frame: :_top } %>
+        <%= f.submit 'Next Step' %>
+      </div>
+    </fieldset>
+  <% end %>
+<% end %>

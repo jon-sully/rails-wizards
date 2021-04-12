@@ -41,6 +41,8 @@ The important files to look at (optional tweaks included):
 - Pt. 8 — Tangible Examples (repo overview)
 - "Save and back vs. just "previous step"?
 - Technically we don't need to use method: :patch on the cache-persisted side of things, but it does feel a little more RESTful I guess.
+- Pt. 9 — Thanks and credits to inspirations?
+- Cache-persisted but with the cache key in the URL?
 
 
 ```ruby
@@ -152,4 +154,8 @@ Notes:
   # Computers
   #   manufacturer_name, year_started; model_name, processor_name, graphics_chip_name; color, weight
   # rails g scaffold Computer manufacturer year_started model processor graphics_chip exterior_color weight form_completed:boolean
+  # 
+  # Books
+  # rails g scaffold Book title author_name year_published:integer isbn:integer primary_topic fictionaility
+  # 
 ```

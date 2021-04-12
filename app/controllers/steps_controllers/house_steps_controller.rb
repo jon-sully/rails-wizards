@@ -12,7 +12,7 @@ module StepsControllers
 
     def update
       house_attrs = Rails.cache.fetch(session.id).merge house_params
-      @house = House.new house_attrs.merge(form_step: step.to_sym)
+      @house = House.new house_attrs
 
       if @house.valid?
         Rails.cache.write session.id, house_attrs
