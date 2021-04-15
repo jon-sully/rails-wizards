@@ -5,11 +5,18 @@
 <p>
   The Boats wizard is just a variation of the Users wizard. In this case we're storing the persitent ID
   of the record created when the user hits 'New' in the user's session rather than directly in the URL.
-  Still mostly straightforward.
-  <br/>
-  <br/>
+  Still mostly straightforward
+</p>
+<p>
   The Boats wizard contains no Turbo Frames but Turbo Drive <i>is</i> running, so the full page is being
   replaced on each navigation/submit.
+</p>
+<p>
+  Because Boats, Desks, and Houses all utilize a session-keyed slot in the Rails cache, the cache key must be
+  amended to include a delineation between the two. Because the House workflow is the 'best' of the three (IMO),
+  I've given it the plain `session.id` key and changed Desks to use a "#{session.id}_desk_form" key format (Boats
+  is changed similarly). You won't need to worry about this if you only have one cache persisted Wizard in your
+  project.
 </p>
 <hr/>
 

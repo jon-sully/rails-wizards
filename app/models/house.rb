@@ -2,8 +2,6 @@
 # rails g scaffold House address current_family_last_name interior_color exterior_color rooms:integer square_feet:integer
 
 class House < ApplicationRecord
-  FORM_TURBO_FRAME_ID = 'house_multi_step_form'
-
   enum form_steps: {
     address_info: [:address, :current_family_last_name],
     house_info: [:interior_color, :exterior_color],

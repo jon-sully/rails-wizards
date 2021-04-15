@@ -13,10 +13,10 @@ class BoatsController < ApplicationController
   # GET /boats/new
   def new
     # If they already started one, use that.
-    unless boat_id = Rails.cache.read(session.id)                         # Only non-vanilla-Rails code here
+    unless boat_id = Rails.cache.read("#{session.id}_boat_form")          # Only non-vanilla-Rails code here
       @boat = Boat.new
       @boat.save! validate: false                                         # Only non-vanilla-Rails code here
-      Rails.cache.write(session.id, @boat.id)                             # Only non-vanilla-Rails code here
+      Rails.cache.write("#{session.id}_boat_form", @boat.id)              # Only non-vanilla-Rails code here
     end
     redirect_to build_boat_path(Boat.form_steps.keys.first)               # Only non-vanilla-Rails code here
   end

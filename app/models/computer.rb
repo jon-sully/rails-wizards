@@ -5,8 +5,6 @@ class Computer < ApplicationRecord
   default_scope { where form_completed: true }
   scope :form_not_completed_only, -> { unscope(where: :form_completed).where(form_completed: false) }
 
-  FORM_TURBO_FRAME_ID = 'computer_multi_step_form'
-
   enum form_steps: {
     maker_details: [:manufacturer, :year_started],
     internals: [:model, :processor, :graphics_chip],

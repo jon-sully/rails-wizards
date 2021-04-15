@@ -1,4 +1,4 @@
-<%= turbo_frame_tag Computer::FORM_TURBO_FRAME_ID do %>
+<%= turbo_frame_tag dom_id(@computer) do %>
   <%= form_with model: @computer, url: wizard_path, method: :patch, data: { turbo_frame: :_top } do |f| %> <%# NOTE the _top target %>
     <% if f.object.errors.any? %>
       <div class="error_messages">

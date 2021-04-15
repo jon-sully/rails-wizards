@@ -10,10 +10,11 @@
   record.
 </p>
 <p>
-  Because Desks and Houses both utilize a session-keyed slot in the Rails cache, the cache key must be
-  amended to include a delineation between the two. Because the House workflow is the 'best' of the two,
-  I've given it the plain `session.id` key and changed Desks to use a "#{session.id}_desk_form" key format.
-  You won't need to worry about this if you only have one cache persisted Wizard in your project.
+  Because Boats, Desks, and Houses all utilize a session-keyed slot in the Rails cache, the cache key must be
+  amended to include a delineation between the two. Because the House workflow is the 'best' of the three (IMO),
+  I've given it the plain `session.id` key and changed Desks to use a "#{session.id}_desk_form" key format (Boats
+  is changed similarly). You won't need to worry about this if you only have one cache persisted Wizard in your
+  project.
 </p>
 <hr/>
 
