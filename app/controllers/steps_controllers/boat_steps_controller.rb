@@ -5,13 +5,13 @@ module StepsControllers
     steps *Boat.form_steps.keys
 
     def show
-      # Boat record id persisted in cache via session id
-      @boat = Boat.find Rails.cache.read("#{session.id}_boat_form")
+      # Boat record id persisted in session
+      @boat = Boat.find session[:boat_id]
       render_wizard
     end
 
     def update
-      @boat = Boat.find Rails.cache.read("#{session.id}_boat_form")
+      @boat = Boat.find session[:boat_id]
       # Use #assign_attributes since render_wizard runs a #save for us
       @boat.assign_attributes boat_params
       render_wizard @boat
@@ -25,7 +25,7 @@ module StepsControllers
 
     def finish_wizard_path
       # Clear out the session cache so the user can create another object
-      Rails.cache.delete "#{session.id}_boat_form"
+      session[:boat_id] = nil
       boat_path(@boat)
     end
   end

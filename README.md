@@ -128,3 +128,10 @@ environemnt, especially those that have no User object / authentication to corre
 On an opinion level, this feels like the direction Rails apps should go in. Turbo Frames make the UI
 workflow very quick and smooth while keeping all validations server-side and not littering the
 database with partially-completed records.
+
+
+
+For the routes like the books routes (`ruby>resources :build_book, only: []`) can I just use a scope
+or namespace? Pointless to declare resources but with no actions 🤔
+
+Re: strategies for avoiding nosy neighbors with public-facing forms when using DB-persistence and ID/Key-in-URL: (_although you could add a random_ `public_facing_key` _to your database records and achieve the same 'random character routing key' effect that Cache-Persistence has with ID/Key-in-URL above_)
