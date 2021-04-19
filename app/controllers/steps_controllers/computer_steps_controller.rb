@@ -13,7 +13,11 @@ module StepsControllers
       @computer = Computer.form_not_completed_only.find(params[:computer_id])
       # Use #assign_attributes since render_wizard runs a #save for us
       @computer.assign_attributes computer_params
-      render_wizard @computer
+      if @computer.valid?
+        render_wizard @computer
+      else
+        render_wizard @computer, status: :unprocessable_entity
+      end
     end
 
     private

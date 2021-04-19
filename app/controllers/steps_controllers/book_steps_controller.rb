@@ -5,15 +5,14 @@ module StepsControllers
     steps *Book.form_steps.keys
 
     def show
-      book_attrs = Rails.cache.fetch params[:build_book_id]
+      book_attrs = Rails.cache.read params[:build_book_id]
       @book = Book.new book_attrs
       render_wizard
     end
 
     def update
-      book_attrs = Rails.cache.fetch(params[:build_book_id]).merge book_params
-      p book_attrs
-      @book = Book.new book_attrs.merge(form_step: step.to_sym)
+      book_attrs = Rails.cache.read(params[:build_book_id]).merge book_params
+      @book = Book.new book_attrs
 
       if @book.valid?
         Rails.cache.write params[:build_book_id], book_attrs
@@ -30,7 +29,7 @@ module StepsControllers
     end
 
     def finish_wizard_path
-      book_attrs = Rails.cache.fetch(params[:build_book_id])
+      book_attrs = Rails.cache.read(params[:build_book_id])
       @book = Book.new book_attrs
       @book.save!
       Rails.cache.delete params[:build_book_id]

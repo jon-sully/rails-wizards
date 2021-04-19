@@ -14,7 +14,12 @@ module StepsControllers
       @boat = Boat.find session[:boat_id]
       # Use #assign_attributes since render_wizard runs a #save for us
       @boat.assign_attributes boat_params
-      render_wizard @boat
+      # This is the work-around discussed in Part 7
+      if @boat.valid? 
+        render_wizard(@boat) 
+      else
+        render_wizard(@boat, status: :unprocessable_entity)
+      end
     end
 
     private

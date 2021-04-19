@@ -13,7 +13,11 @@ module StepsControllers
       @car = Car.find(params[:car_id])
       # Use #assign_attributes since render_wizard runs a #save for us
       @car.assign_attributes car_params
-      render_wizard @car
+      if @car.valid?
+        render_wizard @car
+      else
+        render_wizard @car, status: :unprocessable_entity
+      end
     end
 
     private

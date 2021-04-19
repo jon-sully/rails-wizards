@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(@computer) do %>
-  <%= form_with model: @computer, url: wizard_path, method: :patch do |f| %>
+  <%= form_with model: @computer, url: wizard_path do |f| %>
     <% if f.object.errors.any? %>
       <div class="error_messages">
         <% f.object.errors.full_messages.each do |error| %>
